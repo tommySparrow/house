@@ -24,4 +24,10 @@ public class FreemarkerController {
         modelMap.addAttribute("record",record);
         return "hello";
     }
+
+    @RequestMapping("/index")
+    public String index(){
+
+        return "homepage/index";
+    }
 }
