@@ -2,16 +2,9 @@ package com.house.house;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class HouseApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(HouseApplication.class);
-    }
+public class HouseApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HouseApplication.class, args);
