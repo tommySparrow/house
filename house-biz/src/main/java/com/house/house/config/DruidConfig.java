@@ -48,7 +48,7 @@ public class DruidConfig {
      */
     @Bean
     public ServletRegistrationBean servletRegistrationBean(){
-        ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
+        ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<StatViewServlet>(new StatViewServlet(), "/druid/*");
         return registrationBean;
     }
 }

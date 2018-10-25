@@ -21,7 +21,7 @@ public class FilterBeanConfig {
     @Bean
     public FilterRegistrationBean filterRegistrationBean(){
 
-        FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();
+        FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<Filter>();
         //包装filter
         filterRegistrationBean.setFilter(new LogFilter());
 
