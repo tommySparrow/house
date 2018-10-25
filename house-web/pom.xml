@@ -10,12 +10,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>house-web</artifactId>
+    <packaging>war</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.house</groupId>
             <artifactId>house-biz</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <!-- jar包转war包需要-->
+            <scope>provided</scope>
         </dependency>
 
         <!-- spring-boot-starter-freemarker 支持freemarker -->
@@ -26,4 +34,8 @@
 
     </dependencies>
 
+    <!--定义打包项目名-->
+    <build>
+        <finalName>house-web</finalName>
+    </build>
 </project>

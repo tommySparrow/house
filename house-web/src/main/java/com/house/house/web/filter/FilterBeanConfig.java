@@ -25,7 +25,6 @@ public class FilterBeanConfig {
         //包装filter
         filterRegistrationBean.setFilter(new LogFilter());
 
-
         List<String> list = new ArrayList<String>();
         //设置拦截路径
         list.add("*");
