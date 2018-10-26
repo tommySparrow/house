@@ -36,6 +36,7 @@ public class UserController {
         ResultMsg resultMsg = UserHelper.validate(accont);
         if (resultMsg.isSuccess() && userService.addAccout(accont)){
 
+            modelMap.addAttribute("email", accont.getEmail());
             return "/user/accounts/registerSubmit";
         }else {
             return "redirect:/accounts/register?" + resultMsg.asUrlParams();
