@@ -1,6 +1,10 @@
 package com.house.house.web.controller;
 
 import com.house.house.common.bean.User;
+import com.house.house.common.result.ResultMsg;
+import com.house.house.common.validate.UserHelper;
+import com.house.house.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
     /**
      * @ Author : jmyang
      * validate params
@@ -26,6 +33,12 @@ public class UserController {
             return "/user/accounts/register";
         }
         //用户参数验证
-        return null;
+        ResultMsg resultMsg = UserHelper.validate(accont);
+        if (resultMsg.isSuccess() && userService.addAccout(accont)){
+
+            return "/user/accounts/registerSubmit";
+        }else {
+            return "redirect:/accounts/register?" + resultMsg.asUrlParams();
+        }
     }
 }

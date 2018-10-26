@@ -17,12 +17,15 @@
         <setting name="logImpl" value="STDOUT_LOGGING" />
     </settings>
 
+    <!--别名-->
     <typeAliases>
         <typeAlias type="com.house.house.common.bean.Record" alias="record" />
     </typeAliases>
 
+    <!--扫描.xml配置-->
     <mappers>
         <mapper resource="mapper/RecordMapper.xml" />
+        <mapper resource="mapper/UserMapper.xml" />
     </mappers>
 
 </configuration>
