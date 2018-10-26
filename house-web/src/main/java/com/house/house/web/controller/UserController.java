@@ -25,6 +25,7 @@ public class UserController {
 
             return "/user/accounts/register";
         }
+        //用户参数验证
         return null;
     }
 }
