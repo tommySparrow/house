@@ -19,7 +19,8 @@
 
     <!--别名-->
     <typeAliases>
-        <typeAlias type="com.house.house.common.bean.Record" alias="record" />
+        <!--<typeAlias type="com.house.house.common.bean.Record" alias="record" />-->
+        <package name="com.house.house.common.bean"/>
     </typeAliases>
 
     <!--扫描.xml配置-->
