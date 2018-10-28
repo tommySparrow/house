@@ -3,6 +3,7 @@
 
 <mapper namespace="com.house.house.mapper.UserMapper" >
 
+    <!--插入用户-->
   <insert id="insert">
     insert into user (
                 name,
@@ -28,4 +29,25 @@
                 )
    </insert>
 
+    <!--根据用户对象包含的属性,查询对应的用户-->
+    <select id="selectUsersByQuery" parameterType="user" resultType="user">
+        select * from user
+        <where>
+            <if test="id !=null" >
+                and id = #{id}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+            <if test="passwd != null">
+                and passwd = #{passwd}
+            </if>
+            <if test="enable != null">
+                and enable = #{enable}
+            </if>
+            <if test = "type != null and type!=0">
+                and type = #{type}
+            </if>
+        </where>
+    </select>
 </mapper>

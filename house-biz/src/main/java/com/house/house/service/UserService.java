@@ -24,6 +24,8 @@ public class UserService {
 
     @Autowired
     private FileService fileService;
+    @Autowired
+    private MailService mailService;
 
     /**
      * 插入数据
@@ -44,6 +46,8 @@ public class UserService {
         account.setEnable(0);
         //插入数据库数据
         userMapper.insert(account);
+        //邮件通知
+        mailService.registerNotify(account.getEmail());
         return true;
     }
 }
