@@ -7,6 +7,7 @@ import com.house.house.common.validate.BeanHelper;
 import com.house.house.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class UserService {
      * @ Param [account]
      * @ return boolean
      **/
+    @Transactional
     public boolean addAccout(User account){
 
         //密码加密

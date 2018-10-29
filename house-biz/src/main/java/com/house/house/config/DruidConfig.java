@@ -9,6 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @ Author     ：jmyang
@@ -17,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
  * @ throws
  */
 @Configuration
+@EnableTransactionManagement
 public class DruidConfig {
 
     /**
@@ -51,4 +55,13 @@ public class DruidConfig {
         ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<StatViewServlet>(new StatViewServlet(), "/druid/*");
         return registrationBean;
     }
+
+    /**
+     * 事物管理
+     */
+    @Bean
+    public PlatformTransactionManager platformTransactionManager(){
+        return new DataSourceTransactionManager(druidDataSource());
+    }
+
 }
