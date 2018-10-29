@@ -16,6 +16,13 @@ public class FreemarkerController {
     @Autowired
     private RecordService recordService;
 
+    /**
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/29
+     * @ Param [modelMap]
+     * @ return java.lang.String
+     **/
     @RequestMapping("/test")
     public String testRecords(ModelMap modelMap){
 
@@ -25,6 +32,13 @@ public class FreemarkerController {
         return "hello";
     }
 
+    /**
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/29
+     * @ Param []
+     * @ return java.lang.String
+     **/
     @RequestMapping("/index")
     public String index(){
 

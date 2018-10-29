@@ -12,6 +12,13 @@ public class HashUtils {
 	
 	private static final String SALT = "mooc.com";
 	
+	/**
+	 * @ Author jmy
+	 * @ Description //TODO User
+	 * @ Date 2018/10/29
+	 * @ Param [password]
+	 * @ return java.lang.String
+	 **/
 	public static String encryPassword(String password){
 	   HashCode hashCode =	FUNCTION.hashString(password+SALT, Charset.forName("UTF-8"));
 	   return hashCode.toString();

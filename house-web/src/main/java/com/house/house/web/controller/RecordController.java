@@ -20,6 +20,13 @@ public class RecordController {
     @Autowired
     private RecordService recordService;
 
+    /**
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/29
+     * @ Param []
+     * @ return java.util.List<com.house.house.common.bean.Record>
+     **/
     @RequestMapping("/getRecords")
     public List<Record> selectRecords(){
 

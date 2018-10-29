@@ -63,10 +63,13 @@ public class MailService {
             }).build();
 
     /**
-     *注册 邮件通知
-     *
-     * 1.缓存key-email的关系 2.借助spring mail 发送邮件 3.借助异步框架进行异步操作
-     */
+     * @ Author jmy
+     * @ Description 注册 邮件通知
+     *               1.缓存key-email的关系 2.借助spring mail 发送邮件 3.借助异步框架进行异步操作
+     * @ Date 2018/10/29
+     * @ Param [email]
+     * @ return void
+     **/
     @Async
     public void registerNotify(String email){
         String randomKey = RandomStringUtils.randomAlphabetic(10);
@@ -76,6 +79,13 @@ public class MailService {
         String content = "http://" + domainName + "/accounts/verify?key=" + randomKey;
         sendMail("房产平台密码重置邮件", content, email);
     }
+    /**
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/29
+     * @ Param [title, url, email]
+     * @ return void
+     **/
     @Async
     public void sendMail(String title, String url, String email) {
         SimpleMailMessage message = new SimpleMailMessage();

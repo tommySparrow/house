@@ -22,9 +22,12 @@ public class UserController {
     private UserService userService;
 
     /**
-     * @ Author : jmyang
-     * validate params
-     */
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/29
+     * @ Param [accont, modelMap]
+     * @ return java.lang.String
+     **/
     @RequestMapping("/accounts/register")
     public String accountsRegister(User accont, ModelMap modelMap){
 

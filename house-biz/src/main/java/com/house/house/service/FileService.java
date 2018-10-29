@@ -25,6 +25,13 @@ public class FileService {
     @Value("${file.path}")
     private String filePath;
 
+    /**
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/29
+     * @ Param [files]
+     * @ return java.util.List<java.lang.String>
+     **/
     public List<String> getImgPaths(List<MultipartFile> files){
 
         //校验filePath是否有值
@@ -49,13 +56,26 @@ public class FileService {
         return paths;
     }
 
-    //获取绝对路径
+    /**
+     * @ Author jmy
+     * @ Description //获取绝对路径
+     * @ Date 2018/10/29
+     * @ Param []
+     * @ return java.lang.String
+     **/
     private String getAbsolutePath() {
         //"." or "/"
         File file = new File(".");
         return file.getAbsolutePath();
     }
 
+    /**
+     * @ Author jmy
+     * @ Description 保存到本地
+     * @ Date 2018/10/29
+     * @ Param [file]
+     * @ return java.io.File
+     **/
     private File saveToLocal(MultipartFile file) throws IOException {
         String fileUrl = filePath + "/" + Instant.now().getEpochSecond() +"/"+file.getOriginalFilename();
         File newFile = new File(fileUrl);

@@ -28,8 +28,12 @@ public class UserService {
     private MailService mailService;
 
     /**
-     * 插入数据
-     */
+     * @ Author jmy
+     * @ Description 插入数据
+     * @ Date 2018/10/29
+     * @ Param [account]
+     * @ return boolean
+     **/
     public boolean addAccout(User account){
 
         //密码加密
