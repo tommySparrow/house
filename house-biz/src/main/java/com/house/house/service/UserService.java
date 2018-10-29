@@ -56,4 +56,15 @@ public class UserService {
         mailService.registerNotify(account.getEmail());
         return true;
     }
+
+    /**
+     * @ Author jmy
+     * @ Description 根据参数key 1.修改数据库中改用户的状态吗 2.失效cache中的对应数据 //TODO User
+     * @ Date 2018/10/29
+     * @ Param [key]
+     * @ return void
+     **/
+    public boolean enable(String key) {
+        return mailService.enable(key);
+    }
 }

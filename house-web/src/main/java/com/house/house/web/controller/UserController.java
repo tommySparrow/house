@@ -23,7 +23,7 @@ public class UserController {
 
     /**
      * @ Author jmy
-     * @ Description //TODO User
+     * @ Description 用户注册//TODO User
      * @ Date 2018/10/29
      * @ Param [accont, modelMap]
      * @ return java.lang.String
@@ -44,5 +44,26 @@ public class UserController {
         }else {
             return "redirect:/accounts/register?" + resultMsg.asUrlParams();
         }
+    }
+
+    /**
+     * @ Author jmy
+     * @ Description 激活账号//TODO User
+     * @ Date 2018/10/29
+     * @ Param [key]
+     * @ return java.lang.String
+     **/
+
+    @RequestMapping("/accounts/verify")
+    public String verify(String key){
+
+        //根据参数key 1.修改数据库中改用户的状态吗 2.失效cache中的对应数据
+        boolean res = userService.enable(key);
+        if (res){
+            return "redirect:/index?" + ResultMsg.successMsg("激活成功").asUrlParams();
+        }else {
+            return "redirect:/accounts/register?" + ResultMsg.errorMsg("激活失败,请确认链接是否过期");
+        }
+
     }
 }

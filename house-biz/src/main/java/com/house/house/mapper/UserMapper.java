@@ -40,4 +40,13 @@ public interface UserMapper {
      * @ return int
      **/
     int delete(String email);
+
+    /**
+     * @ Author jmy
+     * @ Description 更新对应用户的属性值//TODO User
+     * @ Date 2018/10/29
+     * @ Param [user]
+     * @ return void
+     **/
+    void update(User user);
 }

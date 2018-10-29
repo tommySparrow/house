@@ -96,4 +96,28 @@ public class MailService {
         mailSender.send(message);
     }
 
+    /**
+     * @ Author jmy
+     * @ Description 根据参数key 1.修改数据库中改用户的状态吗 2.失效cache中的对应数据//TODO User
+     * @ Date 2018/10/29
+     * @ Param [key]
+     * @ return boolean
+     **/
+    public boolean enable(String key) {
+
+        //1.查询cache中是否有key对应的值
+        String email = registerCache.getIfPresent(key);
+        if (null == email){
+            return false;
+        }
+        //2.cache中有值
+        //2.1更新库中对应的字段
+        User user = new User();
+        user.setEnable(1);
+        user.setEmail(email);
+        userMapper.update(user);
+        //2.2失效cache对应的值
+        registerCache.invalidate(key);
+        return true;
+    }
 }
