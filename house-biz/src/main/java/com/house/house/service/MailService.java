@@ -87,12 +87,12 @@ public class MailService {
      * @ return void
      **/
     @Async
-    public void sendMail(String title, String url, String email) {
+    public void sendMail(String title, String content, String email) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setSubject(title);
         message.setTo(email);
-        message.setText(url);
+        message.setText(content);
         mailSender.send(message);
     }
 
