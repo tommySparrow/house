@@ -77,7 +77,7 @@ public class MailService {
         registerCache.put(randomKey,email);
         //发送邮件
         String content = "http://" + domainName + "/accounts/verify?key=" + randomKey;
-        sendMail("房产平台密码重置邮件", content, email);
+        sendMail("房产平台激活邮件", content, email);
     }
     /**
      * @ Author jmy
