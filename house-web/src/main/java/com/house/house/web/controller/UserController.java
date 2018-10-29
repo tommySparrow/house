@@ -1,13 +1,18 @@
 package com.house.house.web.controller;
 
 import com.house.house.common.bean.User;
+import com.house.house.common.constants.CommonConstants;
 import com.house.house.common.result.ResultMsg;
 import com.house.house.common.validate.UserHelper;
 import com.house.house.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @ Author     ：jmyang
@@ -66,4 +71,28 @@ public class UserController {
         }
 
     }
+    //登录流程--------------------------------
+    @RequestMapping("/accounts/signin")
+    public String signin(HttpServletRequest request){
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String target = request.getParameter("target");
+
+        if (null == username || null == password) {
+            request.setAttribute("target", target);
+            return "/user/accounts/signin";
+        }
+        //用户名密码验证
+        User user = userService.ath(username, password);
+        if (null == user) {
+            return "redirect:/accounts/signin?" + "target=" + target + "&username=" + username + "&"
+                    + ResultMsg.errorMsg("用户名或密码错误").asUrlParams();
+        }else {
+            //将用户信息放在session中
+            HttpSession session = request.getSession(true);
+            session.setAttribute(CommonConstants.USER_ATTRIBUTE, user);
+            return StringUtils.isNoneBlank(target) ? "redirect:" + target : "redirect:/index";
+        }
+    }
+
 }

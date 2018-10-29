@@ -6,6 +6,7 @@ import com.house.house.common.utils.HashUtils;
 import com.house.house.common.validate.BeanHelper;
 import com.house.house.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,9 @@ public class UserService {
     private FileService fileService;
     @Autowired
     private MailService mailService;
+
+    @Value("${file.prefix}")
+    private String imgPrefix;
 
     /**
      * @ Author jmy
@@ -66,5 +70,39 @@ public class UserService {
      **/
     public boolean enable(String key) {
         return mailService.enable(key);
+    }
+/**
+ * @ Author jmy
+ * @ Description 查询对应的用户//TODO User
+ * @ Date 2018/10/29
+ * @ Param [username, password]
+ * @ return com.house.house.common.bean.User
+ **/
+    public User ath(String username, String password) {
+
+        User user = new User();
+        user.setEmail(username);
+        user.setPasswd(HashUtils.encryPassword(password));
+        user.setEnable(1);
+        List<User> userList = getUserByQuery(user);
+        if (!userList.isEmpty()){
+           return userList.get(0);
+        }
+        return null;
+    }
+
+    /**
+     * @ Author jmy
+     * @ Description 查询对应的用户//TODO User
+     * @ Date 2018/10/29
+     * @ Param [user]
+     * @ return void
+     **/
+    private List<User> getUserByQuery(User user) {
+        List<User> userList = userMapper.selectUsersByQuery(user);
+        userList.forEach(u -> {
+            u.setAvatar(imgPrefix + u.getAvatar());
+        });
+        return userList;
     }
 }
