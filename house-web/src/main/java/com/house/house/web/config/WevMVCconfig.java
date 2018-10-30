@@ -25,7 +25,7 @@ public class WevMVCconfig extends WebMvcConfigurerAdapter {
 
         registry.addInterceptor(athInterceptor).excludePathPatterns("/static","/error").addPathPatterns("/**");
 
-        registry.addInterceptor(authActionInterceptor).addPathPatterns("/house/toAdd");
+        registry.addInterceptor(authActionInterceptor).addPathPatterns("/house/toAdd").addPathPatterns("/accounts/profile");
         super.addInterceptors(registry);
     }
 }
