@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @ Author     ：jmyang
@@ -102,4 +103,34 @@ public class UserController {
         session.invalidate();
         return "redirect:/index";
     }
+
+    //个人信息页-----------------------
+
+    /** 1.能够提供页面信息 2.更新用户信息
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/10/30
+     * @ Param [request, updateUser, modelMap]
+     * @ return java.lang.String
+     **/
+    @RequestMapping("/accounts/profile")
+    public String profile(HttpServletRequest request,User updateUser,ModelMap modelMap){
+
+        //提供个人页面
+        if (null == updateUser.getEmail()) {
+            return "/user/accounts/profile";
+        }
+
+        //更新用户信息
+        userService.updateUser(updateUser);
+        //将该用户存放入session中
+        User query = new User();
+        String email = updateUser.getEmail();
+        query.setEmail(email);
+        List<User> userByQuery = userService.getUserByQuery(query);
+        //存入session中
+        request.getSession(true).setAttribute(CommonConstants.USER_ATTRIBUTE, userByQuery.get(0));
+        return "redirect:/accounts/profile?"+ResultMsg.successMsg("更新成功").asUrlParams();
+    }
+
 }

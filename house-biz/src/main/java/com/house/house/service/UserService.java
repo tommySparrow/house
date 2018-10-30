@@ -98,11 +98,24 @@ public class UserService {
      * @ Param [user]
      * @ return void
      **/
-    private List<User> getUserByQuery(User user) {
+    public List<User> getUserByQuery(User user) {
         List<User> userList = userMapper.selectUsersByQuery(user);
         userList.forEach(u -> {
             u.setAvatar(imgPrefix + u.getAvatar());
         });
         return userList;
+    }
+
+    /**
+     * @ Author jmy
+     * @ Description  更新用户信息 //TODO User
+     * @ Date 2018/10/30
+     * @ Param [updateUser]
+     * @ return void
+     **/
+    public void updateUser(User updateUser) {
+
+        BeanHelper.onUpdate(updateUser);
+        userMapper.update(updateUser);
     }
 }
