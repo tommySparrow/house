@@ -1,5 +1,6 @@
-package com.house.house.web.filter;
+package com.house.house.web.config;
 
+import com.house.house.web.filter.LogFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
