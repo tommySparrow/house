@@ -16,8 +16,8 @@ public class UserContext {
     public static void setUser(User user){
         USER_HODLER.set(user);
     }
-    public static void getUser(){
-        USER_HODLER.get();
+    public static User getUser(){
+       return USER_HODLER.get();
     }
     public static void remove(){
         USER_HODLER.remove();
