@@ -3,6 +3,7 @@ package com.house.house.web.controller;
 import com.house.house.common.bean.User;
 import com.house.house.common.constants.CommonConstants;
 import com.house.house.common.result.ResultMsg;
+import com.house.house.common.utils.HashUtils;
 import com.house.house.common.validate.UserHelper;
 import com.house.house.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -131,6 +132,30 @@ public class UserController {
         //存入session中
         request.getSession(true).setAttribute(CommonConstants.USER_ATTRIBUTE, userByQuery.get(0));
         return "redirect:/accounts/profile?"+ResultMsg.successMsg("更新成功").asUrlParams();
+    }
+
+    /**
+     * @ Author jmy
+     * @ Description 更改用户密码//TODO User
+     * @ Date 2018/10/30
+     * @ Param [email, password, newPassword, confirmPassword, mode]
+     * @ return java.lang.String
+     **/
+    @RequestMapping("/accounts/changePassword")
+    public String changePassword(HttpServletRequest request,String email, String password, String newPassword,
+                                 String confirmPassword, ModelMap mode){
+
+        User user = userService.ath(email, password);
+        if (null == user || !confirmPassword.equals(newPassword)){
+            return "redirct:/accounts/profile?" + ResultMsg.errorMsg("密码错误").asUrlParams();
+        }
+
+        User query = new User();
+        query.setEmail(email);
+        query.setPasswd(HashUtils.encryPassword(newPassword));
+        userService.updateUser(query);
+        request.getSession(true).invalidate();
+        return "redirect:/accounts/signin?" + ResultMsg.successMsg("更新成功,请从新登陆").asUrlParams();
     }
 
 }
