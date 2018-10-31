@@ -2,9 +2,9 @@ package com.house.house.common.bean;
 
 public class Community {
 	private Integer id;
-	private String cityCode;
-	private String cityName;
-	private String name;
+	private String cityCode;//城市编码
+	private String cityName;//城市名称
+	private String name;//小区名称
 
 	public Integer getId() {
 		return id;

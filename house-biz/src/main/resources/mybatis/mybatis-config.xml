@@ -27,6 +27,7 @@
     <mappers>
         <mapper resource="mapper/RecordMapper.xml" />
         <mapper resource="mapper/UserMapper.xml" />
+        <mapper resource="mapper/HouseMapper.xml" />
     </mappers>
 
 </configuration>
