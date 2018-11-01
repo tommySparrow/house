@@ -66,7 +66,7 @@
         </where>
     </sql>
 
-    <!--根据房产名称,查询所属小区信息-->
+    <!--根据小区名称,查询所属小区信息-->
     <select id="selectCommunity" resultType="community">
         select *
         from community
