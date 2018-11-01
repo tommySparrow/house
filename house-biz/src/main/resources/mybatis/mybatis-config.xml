@@ -30,6 +30,7 @@
         <mapper resource="mapper/HouseMapper.xml" />
         <mapper resource="mapper/HouseUserMapper.xml" />
         <mapper resource="mapper/AgencyMapper.xml" />
+        <mapper resource="mapper/HouseMsgMapper.xml" />
     </mappers>
 
 </configuration>

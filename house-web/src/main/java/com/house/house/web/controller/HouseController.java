@@ -2,8 +2,10 @@ package com.house.house.web.controller;
 
 import com.house.house.common.bean.House;
 import com.house.house.common.bean.HouseUser;
+import com.house.house.common.bean.UserMsg;
 import com.house.house.common.page.PageData;
 import com.house.house.common.page.PageParams;
+import com.house.house.common.result.ResultMsg;
 import com.house.house.service.AgencyService;
 import com.house.house.service.HouseService;
 import com.house.house.service.HouseUserService;
@@ -74,6 +76,19 @@ public class HouseController {
         }
         modelMap.put("house", house);
         return "/house/detail";
+    }
+
+    /**
+     * @ Author jmy
+     * @ Description 留言//TODO User
+     * @ Date 2018/11/1
+     * @ Param [userMsg]
+     * @ return java.lang.String
+     **/
+    @RequestMapping("/house/leaveMsg")
+    public String houseMsg(UserMsg userMsg){
+        houseService.addUserMsg(userMsg);
+        return "redirect:/house/detail?id=" + userMsg.getHouseId()+"&"+ ResultMsg.successMsg("留言成功").asUrlParams();
     }
 
 }

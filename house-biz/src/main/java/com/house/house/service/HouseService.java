@@ -4,9 +4,13 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.house.house.common.bean.Community;
 import com.house.house.common.bean.House;
+import com.house.house.common.bean.User;
+import com.house.house.common.bean.UserMsg;
 import com.house.house.common.page.PageData;
 import com.house.house.common.page.PageParams;
+import com.house.house.common.validate.BeanHelper;
 import com.house.house.mapper.HouseMapper;
+import com.house.house.mapper.HouseMsgMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -27,6 +31,15 @@ public class HouseService {
     private HouseMapper houseMapper;
     @Value("${file.prefix}")
     private String imgPrefix;
+
+    @Autowired
+    private HouseMsgMapper houseMsgMapper;
+
+    @Autowired
+    private AgencyService agencyService;
+
+    @Autowired
+    private MailService mailService;
 
     /**
      * @ Author jmy
@@ -87,5 +100,16 @@ public class HouseService {
             return houses.get(0);
         }
         return null;
+    }
+
+    public void addUserMsg(UserMsg userMsg) {
+
+        BeanHelper.onInsert(userMsg);
+        //插入house_msg数据
+        houseMsgMapper.insertMsg(userMsg);
+        //根据经纪机构id,查询对应经纪机构
+        Long agentId = userMsg.getAgentId();
+        User agentDeail = agencyService.getAgentDeail(agentId);
+        mailService.sendMail("来自用户"+userMsg.getEmail()+"的留言", userMsg.getMsg(), agentDeail.getEmail());
     }
 }
