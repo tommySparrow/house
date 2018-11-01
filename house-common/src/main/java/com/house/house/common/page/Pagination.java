@@ -15,7 +15,7 @@ public class Pagination {
 	private int pageNum;
 	private int pageSize;
 	private long totalCount;//总数
-	private List<Integer> pages = Lists.newArrayList();
+	private List<Integer> pages = Lists.newArrayList();//页数
 
 	public Pagination(Integer pageSize, Integer pageNum, Long totalCount) {
 	   this.totalCount = totalCount;
