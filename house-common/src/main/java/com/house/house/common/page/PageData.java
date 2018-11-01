@@ -12,7 +12,7 @@ import java.util.List;
 public class PageData<T> {
 
 	private List<T> list;
-	private Pagination pagination;//pageNum,pageSize,totalCount,pages
+	private Pagination pagination;//pageNum,pageSize,totalCount
 	
 	public PageData(Pagination pagination, List<T> list){
 		this.pagination = pagination;

@@ -24,6 +24,8 @@ public class Pagination {
 	   for(int i=1;i<=pageNum;i++){
 		   pages.add(i);
 	   }
+	   //totalCount:总的条数
+		//totalCount % pageSize != 0 时,总页数加1
 	   Long pageCount = totalCount/pageSize + ((totalCount % pageSize == 0 ) ? 0: 1);
 	   if (pageCount > pageNum) {
 		  for(int i= pageNum + 1; i<= pageCount ;i ++){
