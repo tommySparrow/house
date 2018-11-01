@@ -49,7 +49,7 @@
  * options then and returns it as a plain Number object.
  * 
  * To achieve the old way of combining parsing and formatting to keep say a input field always formatted
- * to a given format after it has lost focus you'd simply use a combination of the functions.
+ * to a given format after it has lost focus you'd simply user a combination of the functions.
  * 
  * e.g.
  * $("#salary").blur(function(){
@@ -137,7 +137,7 @@
          var neg = "-";
          
          if (isFullLocale == false) {
-	         // Extract and convert to lower-case any language code from a real 'locale' formatted string, if not use as-is
+	         // Extract and convert to lower-case any language code from a real 'locale' formatted string, if not user as-is
 	         // (To prevent locale format like : "fr_FR", "en_US", "de_DE", "fr_FR", "en-US", "de-DE")
 	         if (locale.indexOf('_') != -1)
 				locale = locale.split('_')[1].toLowerCase();
@@ -164,7 +164,7 @@
 	/**
 	 * Formats anything containing a number in standard js number notation.
 	 * 
-	 * @param {Object}	options			The formatting options to use
+	 * @param {Object}	options			The formatting options to user
 	 * @param {Boolean}	writeBack		(true) If the output value should be written back to the subject
 	 * @param {Boolean} giveReturnValue	(true) If the function should return the output string
 	 */

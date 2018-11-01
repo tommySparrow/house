@@ -16,7 +16,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
   // ============================================================
@@ -65,7 +65,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // ALERT CLASS DEFINITION
   // ======================
@@ -154,7 +154,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // BUTTON PUBLIC CLASS DEFINITION
   // ==============================
@@ -262,7 +262,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // CAROUSEL CLASS DEFINITION
   // =========================
@@ -468,7 +468,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // COLLAPSE PUBLIC CLASS DEFINITION
   // ================================
@@ -639,7 +639,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // DROPDOWN CLASS DEFINITION
   // =========================
@@ -662,7 +662,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
-        // if mobile we use a backdrop because click events don't delegate
+        // if mobile we user a backdrop because click events don't delegate
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
 
@@ -787,7 +787,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // MODAL CLASS DEFINITION
   // ======================
@@ -1032,7 +1032,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // TOOLTIP PUBLIC CLASS DEFINITION
   // ===============================
@@ -1234,7 +1234,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     offset.left = offset.left + marginLeft
 
     // $.fn.offset doesn't round pixel values
-    // so we use setOffset directly with our own function B-0
+    // so we user setOffset directly with our own function B-0
     $.offset.setOffset($tip[0], $.extend({
       using: function (props) {
         $tip.css({
@@ -1431,7 +1431,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // POPOVER PUBLIC CLASS DEFINITION
   // ===============================
@@ -1467,7 +1467,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     var content = this.getContent()
 
     $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content')[ // we use append for html objects to maintain js events
+    $tip.find('.popover-content')[ // we user append for html objects to maintain js events
       this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
     ](content)
 
@@ -1542,7 +1542,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // SCROLLSPY CLASS DEFINITION
   // ==========================
@@ -1696,7 +1696,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // TAB CLASS DEFINITION
   // ====================
@@ -1822,7 +1822,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 +function ($) {
-  'use strict';
+  'user strict';
 
   // AFFIX CLASS DEFINITION
   // ======================

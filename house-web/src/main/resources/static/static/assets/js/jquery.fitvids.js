@@ -11,7 +11,7 @@
 
 (function( $ ){
 
-  "use strict";
+  "user strict";
 
   $.fn.fitVids = function( options ) {
     var settings = {
