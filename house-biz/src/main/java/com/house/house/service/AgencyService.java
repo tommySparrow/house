@@ -61,4 +61,16 @@ public class AgencyService {
         });
 
     }
+
+    /**
+     * @ Author jmy
+     * @ Description 获取所有agency//TODO User
+     * @ Date 2018/11/1
+     * @ Param []
+     * @ return java.util.List<com.house.house.common.bean.Agency>
+     **/
+    public List<Agency> getAllAgency() {
+
+        return agencyMapper.selectByAgency(new Agency());
+    }
 }

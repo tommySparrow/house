@@ -56,7 +56,8 @@
                 <div class="col-md-3 col-sm-3">
                     <section id="sidebar">
                         <@common.search />
-                        <@common.hot />
+                        <#--热门房产-->
+                        <#--<@common.hot />-->
                     </section><!-- /#sidebar -->
                 </div><!-- /.col-md-3 -->
                 <!-- end Sidebar -->
