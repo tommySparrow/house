@@ -71,4 +71,21 @@ public class HouseService {
         return houseList;
     }
 
+    /**
+     * @ Author jmy
+     * @ Description 查询房产信息//TODO User
+     * @ Date 2018/11/1
+     * @ Param [id]
+     * @ return com.house.house.common.bean.House
+     **/
+    public House queryOneHouse(Long id) {
+
+        House house = new House();
+        house.setId(id);
+        List<House> houses = queryAndSetImg(house, PageParams.build(1, 1));
+        if (houses.size() != 0){
+            return houses.get(0);
+        }
+        return null;
+    }
 }

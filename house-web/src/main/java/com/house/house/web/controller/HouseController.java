@@ -1,9 +1,12 @@
 package com.house.house.web.controller;
 
 import com.house.house.common.bean.House;
+import com.house.house.common.bean.HouseUser;
 import com.house.house.common.page.PageData;
 import com.house.house.common.page.PageParams;
+import com.house.house.service.AgencyService;
 import com.house.house.service.HouseService;
+import com.house.house.service.HouseUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,6 +23,13 @@ public class HouseController {
 
     @Autowired
     private HouseService houseService;
+
+    @Autowired
+    private HouseUserService houseUserService;
+
+    @Autowired
+    private AgencyService agencyService;
+
 
     /**
      * @ Author jmy
@@ -40,6 +50,30 @@ public class HouseController {
         modelMap.put("ps", housePageData);
         modelMap.put("vo", house);
         return "house/listing";
+    }
+
+    /**
+     * @ Author jmy
+     * @ Description //TODO User
+     * @ Date 2018/11/1
+     * @ Param [id, modelMap]
+     * @ return java.lang.String
+     * 查询房屋详情
+     * 查询关联经纪人
+     **/
+    @RequestMapping("/house/detail")
+    public String houseDetail(Long id,ModelMap modelMap){
+
+        //根据id查询对应房产信息
+        House house = houseService.queryOneHouse(id);
+        //根据id查询house_use 关联表(type = 1)
+        HouseUser houseUser = houseUserService.selectOneHouseUser(id);
+        if ( null != houseUser.getUserId() && !houseUser.getUserId().equals(0)){
+            //获取经纪人信息
+            modelMap.put("agent", agencyService.getAgentDeail(houseUser.getUserId()));
+        }
+        modelMap.put("house", house);
+        return "/house/detail";
     }
 
 }

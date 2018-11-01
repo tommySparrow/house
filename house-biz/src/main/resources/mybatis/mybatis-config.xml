@@ -28,6 +28,8 @@
         <mapper resource="mapper/RecordMapper.xml" />
         <mapper resource="mapper/UserMapper.xml" />
         <mapper resource="mapper/HouseMapper.xml" />
+        <mapper resource="mapper/HouseUserMapper.xml" />
+        <mapper resource="mapper/AgencyMapper.xml" />
     </mappers>
 
 </configuration>
