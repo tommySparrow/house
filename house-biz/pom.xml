@@ -55,6 +55,13 @@
             <version>2.9.0</version>
         </dependency>
 
+        <!-- 通用Mapper -->
+        <dependency>
+            <groupId>com.github.abel533</groupId>
+            <artifactId>mapper</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
     </dependencies>
 
 
