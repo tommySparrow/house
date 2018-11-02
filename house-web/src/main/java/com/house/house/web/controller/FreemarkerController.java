@@ -39,7 +39,7 @@ public class FreemarkerController {
      * @ Param []
      * @ return java.lang.String
      **/
-    @RequestMapping("/index")
+    @RequestMapping("/index0")
     public String index(){
 
         return "homepage/index";

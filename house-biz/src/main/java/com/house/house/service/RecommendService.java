@@ -83,4 +83,13 @@ public class RecommendService {
             logger.info(e.toString());
         }
     }
+
+    //获取最新添加的房产信息
+    public List<House> getLastest() {
+
+        House house = new House();
+        house.setSort("create_time");
+        List<House> houseList = houseService.queryAndSetImg(house, PageParams.build(8, 1));
+        return houseList;
+    }
 }
