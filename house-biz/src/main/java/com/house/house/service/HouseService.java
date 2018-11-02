@@ -73,7 +73,7 @@ public class HouseService {
         return PageData.buildPage(houses, count, pageParams.getPageSize(), pageParams.getPageNum());
     }
 
-    private List<House> queryAndSetImg(House house, PageParams pageParams) {
+    public List<House> queryAndSetImg(House house, PageParams pageParams) {
         //分页查询房产
         List<House> houseList = houseMapper.selectPageHouses(house, pageParams);
         houseList.forEach(h ->{

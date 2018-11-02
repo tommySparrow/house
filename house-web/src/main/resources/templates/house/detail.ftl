@@ -249,20 +249,20 @@
                         <aside id="featured-properties">
                             <#--暂时注释掉-->
                             <header><h3>热门房产</h3></header>
-                            <#--<#list recomHouses as house>-->
-                            <#--<div class="property small">-->
-                                <#--<a href="/house/detail?id=${house.id}">-->
-                                    <#--<div class="property-image">-->
-                                        <#--<img alt="" src="${(house.firstImg)!}" style="width: 100px;height: 75px">-->
-                                    <#--</div>-->
-                                <#--</a>-->
-                                <#--<div class="info">-->
-                                    <#--<a href="/house/detail?id=${house.id}"><h4>${(house.name)!}</h4></a>-->
-                                    <#--<figure>${(house.address)!} </figure>-->
-                                    <#--<div class="tag price">￥${(house.price)!}</div>-->
-                                <#--</div>-->
-                            <#--</div><!-- /.property &ndash;&gt;-->
-                            <#--</#list>-->
+                            <#list recomHouses as house>
+                            <div class="property small">
+                                <a href="/house/detail?id=${house.id}">
+                                    <div class="property-image">
+                                        <img alt="" src="${(house.firstImg)!}" style="width: 100px;height: 75px">
+                                    </div>
+                                </a>
+                                <div class="info">
+                                    <a href="/house/detail?id=${house.id}"><h4>${(house.name)!}</h4></a>
+                                    <figure>${(house.address)!} </figure>
+                                    <div class="tag price">￥${(house.price)!}</div>
+                                </div>
+                            </div><!-- /.property -->
+                            </#list>
                             <#--暂时注释掉-->
                         </aside><!-- /#featured-properties -->
                        
