@@ -34,16 +34,16 @@
     </plugins>
 
     <!--扫描.xml配置-->
-    <mappers>
-        <mapper resource="mapper/RecordMapper.xml" />
-        <mapper resource="mapper/UserMapper.xml" />
-        <mapper resource="mapper/HouseMapper.xml" />
-        <mapper resource="mapper/HouseUserMapper.xml" />
-        <mapper resource="mapper/AgencyMapper.xml" />
-        <mapper resource="mapper/HouseMsgMapper.xml" />
-        <mapper resource="mapper/CommentMapper.xml" />
-        <mapper resource="mapper/BlogMapper.xml" />
-    </mappers>
+    <!--<mappers>-->
+        <!--<mapper resource="mapper/RecordMapper.xml" />-->
+        <!--<mapper resource="mapper/UserMapper.xml" />-->
+        <!--<mapper resource="mapper/HouseMapper.xml" />-->
+        <!--<mapper resource="mapper/HouseUserMapper.xml" />-->
+        <!--<mapper resource="mapper/AgencyMapper.xml" />-->
+        <!--<mapper resource="mapper/HouseMsgMapper.xml" />-->
+        <!--<mapper resource="mapper/CommentMapper.xml" />-->
+        <!--<mapper resource="mapper/BlogMapper.xml" />-->
+    <!--</mappers>-->
 
 
 </configuration>
