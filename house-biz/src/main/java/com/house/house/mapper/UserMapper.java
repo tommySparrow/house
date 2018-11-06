@@ -1,7 +1,6 @@
 package com.house.house.mapper;
 
 import com.house.house.common.bean.User;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ import java.util.List;
  * @ Description：
  * @ throws
  */
-@Mapper
+//@Mapper
 public interface UserMapper {
 
     /**

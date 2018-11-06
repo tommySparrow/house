@@ -3,12 +3,11 @@ package com.house.house.mapper;
 import com.house.house.common.bean.Community;
 import com.house.house.common.bean.House;
 import com.house.house.common.page.PageParams;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
+//@Mapper
 public interface HouseMapper {
 
      List<Community> selectCommunity(Community community);

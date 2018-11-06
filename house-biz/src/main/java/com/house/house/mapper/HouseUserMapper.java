@@ -1,7 +1,6 @@
 package com.house.house.mapper;
 
 import com.house.house.common.bean.HouseUser;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -10,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
  * @ Description：
  * @ throws
  */
-@Mapper
+//@Mapper
 public interface HouseUserMapper {
 
     HouseUser selectOneHouseUser(@Param("id") Long id);

@@ -1,7 +1,6 @@
 package com.house.house.mapper;
 
 import com.house.house.common.bean.Comment;
-import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @ Author     ：jmyang
@@ -9,6 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @ Description：
  * @ throws
  */
-@Mapper
+//@Mapper
 public interface CommentMapper extends com.github.abel533.mapper.Mapper<Comment> {
 }
