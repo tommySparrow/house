@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
-@EnableAsync
-@MapperScan(basePackages = {"com.house.house.mapper"})
+@EnableAsync//异步支持
+@MapperScan(basePackages = {"com.house.house.mapper"})//mapper 层扫描
 public class HouseApplication {
 
     public static void main(String[] args) {
